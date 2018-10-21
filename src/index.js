@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { BrowserRouter as Router} from 'react-router-dom';
+import {Provider} from 'react-redux';
+import configureStore from './store/configureStore';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import routes from './routes';
+import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
+import './styles/styles.css';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const store = configureStore();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: http://bit.ly/CRA-PWA
-serviceWorker.unregister();
+store.dispatch(loadCourses());
+store.dispatch(loadAuthors());
+ReactDOM.render(
+    <Provider store={store}>
+        <Router>
+            {routes}
+        </Router>
+   </Provider>, 
+    document.getElementById('root'));
+
+

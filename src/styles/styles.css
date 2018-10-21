@@ -1,0 +1,45 @@
+
+  a{
+    color: rgb(19, 13, 1);
+  }
+  
+  a.active {
+    color: rgb(2, 1, 0);
+  }
+  
+  nav {
+    padding-top: 20px;
+    font-size: 20px;
+    background-color: rgb(17, 6, 0);
+    color: aliceblue;
+
+  }
+  
+  .table{
+    background-color: rgba(206, 204, 203, 0.673);
+    border-radius: 10px;
+    margin-top: 40px;
+  }
+  form{
+    background-color: rgba(50, 50, 51, 0.516);
+    padding-bottom: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    color: #faf6f6; 
+  }
+  body{
+    background-image: url('../course.jpg');
+    background-size: 100%; 
+  }
+  button{
+    color: black;
+  }
+  .jumbotron{
+    background-color: rgba(70, 40, 2, 0.199);
+    color: white;
+    border-radius: 10px;
+  };
+
+  .h1,h1{
+    color: antiquewhite;
+  }
