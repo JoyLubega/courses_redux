@@ -28,11 +28,6 @@ class ManageCoursePage extends React.Component {
     }
   }
 
-  // shouldComponentUpdate(nextProps, nextState){
-  //   console.log(nextProps)
-  //   console.log(nextState)
-  //   return false;
-  // }
   componentDidMount(){
     setTimeout(() => this.setState({ loading: false }), 1500); // simulates an async action, and hides the spinner
 
