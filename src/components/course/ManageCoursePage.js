@@ -5,6 +5,7 @@ import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseForm from './CourseForm';
 import Notifications, {notify} from 'react-notify-toast';
+import AwesomeComponent from '../common/spinner';
 
 let danger = { background: 'Red', text: "White" };
 let success = { background: 'Green', text: "White" };
@@ -14,7 +15,8 @@ class ManageCoursePage extends React.Component {
     this.state = {
       course: Object.assign({}, this.props.course),
       errors: {},
-      saving: false
+      saving: false,
+      loading: true
     };
     this.saveOrUpdateCourse = this.saveOrUpdateCourse.bind(this);
     this.deleteCourse= this.deleteCourse.bind(this);
@@ -24,6 +26,16 @@ class ManageCoursePage extends React.Component {
     if (this.props.course.id !== nextProps.course.id) {
       this.setState({course: Object.assign({}, nextProps.course)});
     }
+  }
+
+  // shouldComponentUpdate(nextProps, nextState){
+  //   console.log(nextProps)
+  //   console.log(nextState)
+  //   return false;
+  // }
+  componentDidMount(){
+    setTimeout(() => this.setState({ loading: false }), 1500); // simulates an async action, and hides the spinner
+
   }
   updateCourseState(event) {
     const field = event.target.name;
@@ -53,10 +65,13 @@ redirect(){
     this.props.history.push('/courses'); 
 }
   render() {
+   
+    const { loading } = this.state;
     
     return (
       <div>
       <Notifications />
+      {loading ? <AwesomeComponent/>: 
       <CourseForm
         course={this.state.course}
         onChange={this.updateCourseState}
@@ -66,6 +81,7 @@ redirect(){
         onDelete={this.deleteCourse}
         saving={this.state.saving}
       />
+      }
       </div>
     );
   }
@@ -91,6 +107,7 @@ const getCourseById = (courses, id) => {
 const mapStateToProps=(state, props)=> {
   
     const courseId = props.match.params.id; // this id is coming from  the path `/course/:id`
+    console.log(courseId)
     let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
     if (courseId && state.courses.length > 0){
       

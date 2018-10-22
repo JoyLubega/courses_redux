@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import TextInput from '../common/TextInput';
 import SelectInput from '../common/SelectInput';
 
+
 const CourseForm = (props) => {
     const { course, allAuthors, onSave, onChange, saving, errors, onDelete}= props;
     let urlParams = new URLSearchParams(window.location.search);
@@ -48,9 +49,7 @@ const CourseForm = (props) => {
         disabled={saving}
         value={saving ? 'Saving...' : 'Save'}
         className="btn btn-success"
-        onClick={onSave}/>
-        {}
-        
+        onClick={onSave}/>  
         {deleted ? <div/>:
         <input
         type="submit"

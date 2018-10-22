@@ -4,6 +4,7 @@ import CourseListRow from './CourseListRow';
 
 const CourseList = (props) => {
   const { courses}= props;
+  console.log(props.courses)
   return (
     <table className="table">
       <thead>
