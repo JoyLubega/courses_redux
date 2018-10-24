@@ -1,7 +1,7 @@
 import React from 'react';
 import { css } from 'react-emotion';
 // First way to import
-import { ClipLoader, PropagateLoader, RingLoader} from 'react-spinners';
+import { RingLoader} from 'react-spinners';
  
 const override = css`
     display: block;

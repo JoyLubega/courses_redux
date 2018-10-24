@@ -9,7 +9,7 @@ import AwesomeComponent from '../common/spinner';
 
 let danger = { background: 'Red', text: "White" };
 let success = { background: 'Green', text: "White" };
-class ManageCoursePage extends React.Component {
+export class ManageCoursePage extends React.Component {
   constructor(props, context) {
     super(props, context);
     this.state = {
