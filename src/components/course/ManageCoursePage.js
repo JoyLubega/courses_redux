@@ -46,14 +46,16 @@ export class ManageCoursePage extends React.Component {
       notify.show(error, "custom", 5000, danger);
       });
   }
-  saveOrUpdateCourse(event) {
+  saveOrUpdateCourse (event) {
     event.preventDefault();
     this.setState({ saving:true });
     this.props.actions.saveCourse(this.state.course)
-        .then(() => this.redirect())
+        .then(() => {
+          this.redirect()})
         .catch(error => {
           notify.show(error, "custom", 5000, danger);
             this.setState({saving: false});
+            
           });       
 }
 redirect(){
@@ -93,16 +95,16 @@ ManageCoursePage.contextTypes = {
   router: PropTypes.object
 };
 
-const getCourseById = (courses, id) => {
+export const getCourseById = (courses, id) => {
     const course = courses.filter(course => course.id === id);
     if (course) return course[0]; //since filter returns an array, have to grab the first.
     return null;
   };
 
-const mapStateToProps=(state, props)=> {
+ export const mapStateToProps=(state, props)=> {
   
     const courseId = props.match.params.id; // this id is coming from  the path `/course/:id`
-    console.log(courseId)
+   
     let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
     if (courseId && state.courses.length > 0){
       
@@ -122,7 +124,7 @@ const mapStateToProps=(state, props)=> {
   };
 };
 
-const mapDispatchToProps=(dispatch)=> {
+export const mapDispatchToProps=(dispatch)=> {
   return {
     actions: bindActionCreators(courseActions, dispatch)
   };

@@ -288,6 +288,10 @@ ShallowWrapper {
 }
 `;
 
+exports[`mapDispatchToProps 1`] = `Array []`;
+
+exports[`mapDispatchToProps 2`] = `Array []`;
+
 exports[`renders the CourseList component 1`] = `
 ShallowWrapper {
   Symbol(enzyme.__root__): ShallowWrapper {

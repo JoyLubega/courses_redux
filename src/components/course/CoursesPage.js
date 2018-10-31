@@ -37,12 +37,12 @@ CoursesPage.propTypes = {
   actions: PropTypes.object.isRequired,
   courses: PropTypes.array.isRequired
 };
-const mapStateToProps=(state, ownProps)=> {
+ export const mapStateToProps=(state, ownProps)=> {
   return {
     courses: state.courses
   };
 };
-const mapDispatchToProps=(dispatch)=> {
+ export const mapDispatchToProps=(dispatch)=> {
   return {
     actions: bindActionCreators(courseActions, dispatch)
   };

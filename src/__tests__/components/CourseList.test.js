@@ -1,5 +1,5 @@
 import React from 'react';
-import { shallow} from 'enzyme';
+import { shallow,mount} from 'enzyme';
 import CourseList from '../../components/course/CourseList';
 import CourseListRow from '../../components/course/CourseListRow';
 
@@ -18,7 +18,11 @@ test('renders the CourseList component', () => {
 
 describe('<CourseList /> component contains child componenets', () => {
   test('renders the CourseList component', () => {
-    const wrapper = setup(true);
+    const props = {
+      courses:[],
+      
+    }
+    const wrapper = mount(<CourseList {...props}/>);
     expect(wrapper.find('CourseListRow')).toMatchSnapshot();
   });
 });

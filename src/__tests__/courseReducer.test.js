@@ -28,6 +28,13 @@ import * as actions from '../actions/courseActions';
             expect(newState.title).toEqual('js');
             });
         
+        it('should delete course when passed DELETE_COURSE_SUCCESS', () => {
+            const initialState = [];
+            const newCourse = {title: 'js'};
+            const action = actions.deleteCourse(newCourse);
+            const newState = courseReducer(initialState, action);
+            expect(newState).toEqual([]);
+            });
         it('should load course when passed UPDATE_COURSE_SUCCESS', () => {
             const initialState = [
                 {title: 'react'},

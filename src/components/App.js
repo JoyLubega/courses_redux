@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Header from './common/Header';
 import {connect} from 'react-redux';
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="container-fluid">
@@ -19,10 +19,10 @@ App.propTypes={
   children: PropTypes.object.isRequired,
   loading: PropTypes.bool.isRequired
 };
-const mapStateToProps=(state)=>{
+ export const mapStateToProps=(state)=>{
   return{
     loading: state.ajaxCallsInProgresss > 0
   };
 };
 
-export default App;
+export default connect(mapStateToProps)(App);

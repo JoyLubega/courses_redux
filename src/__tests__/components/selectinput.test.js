@@ -19,5 +19,6 @@ const setup=() =>{
 test('renders the SelectInput component', () => {  
   const wrapper = setup(true);
   expect(wrapper).toHaveLength(1);
+  
 });
 
